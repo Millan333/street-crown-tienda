@@ -142,3 +142,115 @@ document.addEventListener("DOMContentLoaded", function(){
     mostrarProducto();
 
 });
+/* =========================
+   AGREGAR AL CARRITO
+========================= */
+function agregarCarrito(){
+
+    let carrito =
+    JSON.parse(localStorage.getItem("carrito")) || [];
+
+    const producto = {
+
+        nombre:
+        productos[indice].nombre,
+
+        precio:
+        productos[indice].precio,
+
+        imagen:
+        productos[indice].imagen,
+
+        talla:"Única",
+
+        cantidad: parseInt(
+            document.getElementById("cantidad").value
+        )
+
+    };
+
+    carrito.push(producto);
+
+    localStorage.setItem(
+        "carrito",
+        JSON.stringify(carrito)
+    );
+
+    alert("Producto agregado al carrito");
+
+}
+/* =========================
+   AGREGAR CARRITO
+========================= */
+function agregarCarrito(){
+
+    let carrito =
+    JSON.parse(localStorage.getItem("carrito")) || [];
+
+    const producto = {
+
+        nombre:
+        productos[indice].nombre,
+
+        precio:
+        productos[indice].precio,
+
+        imagen:
+        productos[indice].imagen,
+
+        talla:"Única",
+
+        cantidad: parseInt(
+            document.getElementById("cantidad").value
+        )
+
+    };
+
+    carrito.push(producto);
+
+    localStorage.setItem(
+        "carrito",
+        JSON.stringify(carrito)
+    );
+
+    actualizarContador();
+
+    alert("Producto agregado al carrito");
+
+}
+
+/* =========================
+   CONTADOR
+========================= */
+function actualizarContador(){
+
+    let contador =
+    document.getElementById("contador-carrito");
+
+    if(!contador) return;
+
+    let carrito =
+    JSON.parse(localStorage.getItem("carrito")) || [];
+
+    let total = 0;
+
+    carrito.forEach(producto => {
+
+        total += producto.cantidad;
+
+    });
+
+    contador.innerText = total;
+
+}
+
+/* =========================
+   INICIAR
+========================= */
+document.addEventListener("DOMContentLoaded", () => {
+
+    mostrarProducto();
+
+    actualizarContador();
+
+});

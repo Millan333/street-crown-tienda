@@ -2,36 +2,55 @@
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
     <title>STREET CROWN HATS</title>
 
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="/css/normalize.css">
 
-    <!-- TU CSS NORMAL -->
-    <link rel="stylesheet" href="/css/color.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
 
-    <link rel="shortcut icon" href="/img1/Street.png">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="/css/color.css">
+
+    <link rel="shortcut icon"
+          href="/img1/Street.png">
+
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header class="header sticky-top bg-dark">
 
     <nav class="navbar navbar-expand-lg navbar-dark container">
 
         <div class="container-fluid">
 
-            <a class="navbar-brand" href="index.html">
+            <!-- LOGO -->
+            <a class="navbar-brand"
+               href="index.html">
+
                 <img class="logo"
                      src="/img1/Street.png"
                      alt="Street Crown Hats Logo"
                      width="60">
+
             </a>
 
+            <!-- BOTON MOVIL -->
             <button class="navbar-toggler"
                     type="button"
                     data-bs-toggle="collapse"
@@ -44,10 +63,13 @@
 
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <!-- MENU -->
+            <div class="collapse navbar-collapse"
+                 id="navbarNav">
 
                 <ul class="navbar-nav ms-auto align-items-center text-white bg-dark">
 
+                    <!-- CATALOGO -->
                     <li class="nav-item dropdown">
 
                         <a class="nav-link dropdown-toggle"
@@ -63,32 +85,146 @@
                         <ul class="dropdown-menu dropdown-menu-dark">
 
                             <li>
-                                <a class="dropdown-item" href="gorras.html">
+
+                                <a class="dropdown-item"
+                                   href="gorras.html">
+
                                     Gorras
+
                                 </a>
+
                             </li>
 
                             <li>
-                                <a class="dropdown-item" href="playeras.html">
+
+                                <a class="dropdown-item"
+                                   href="playeras.html">
+
                                     Camisas
+
                                 </a>
+
                             </li>
 
                             <li>
-                                <a class="dropdown-item" href="#">
+
+                                <a class="dropdown-item"
+                                   href="#">
+
                                     Sudaderas
+
                                 </a>
+
                             </li>
 
                         </ul>
 
                     </li>
 
+                    <!-- NOSOTROS -->
                     <li class="nav-item">
 
-                        <a class="nav-link mx-lg-3" href="nosotros.html">
+                        <a class="nav-link mx-lg-3"
+                           href="nosotros.html">
+
                             Nosotros
+
                         </a>
+
+                    </li>
+
+                    <!-- CARRITO -->
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link d-flex align-items-center"
+                           href="#"
+                           role="button"
+                           data-bs-toggle="dropdown"
+                           onclick="abrirCarritoMovil()">
+
+                            <!-- ICONO -->
+                            <span style="
+                                font-size:2rem;
+                                color:white;
+                                line-height:1;
+                            ">
+
+                                🛒
+
+                            </span>
+
+                            <!-- CONTADOR -->
+                            <span id="contador-carrito"
+                                  class="badge rounded-pill bg-danger ms-2">
+
+                                0
+
+                            </span>
+
+                        </a>
+
+                        <!-- MINI CARRITO -->
+                        <ul class="dropdown-menu dropdown-menu-end p-3"
+                            id="mini-carrito"
+                            style="
+                                width:320px;
+                                max-height:400px;
+                                overflow-y:auto;
+                            ">
+
+                            <!-- TITULO -->
+                            <li class="d-flex justify-content-between align-items-center mb-2">
+
+                                <h5 class="text-dark m-0">
+
+                                    Carrito
+
+                                </h5>
+
+                                <!-- BOTON VACIAR -->
+                                <button class="btn btn-danger btn-sm"
+                                        onclick="vaciarCarrito()">
+
+                                    Vaciar
+
+                                </button>
+
+                            </li>
+
+                            <hr>
+
+                            <!-- PRODUCTOS -->
+                            <div id="lista-carrito"></div>
+
+                            <hr>
+
+                            <!-- TOTAL -->
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+
+                                <strong class="text-dark">
+
+                                    Total:
+
+                                </strong>
+
+                                <strong class="text-dark"
+                                        id="total-carrito">
+
+                                    $0
+
+                                </strong>
+
+                            </div>
+
+                            <!-- BOTON COMPRAR -->
+                            <button class="btn btn-success w-100"
+                                    onclick="comprarWhatsApp()">
+
+                                Comprar
+
+                            </button>
+
+                        </ul>
 
                     </li>
 
@@ -102,91 +238,113 @@
 
 </header>
 
- <main class="container py-5">
+<!-- PRODUCTO -->
+<main class="container py-4">
 
-        <div class="row align-items-center">
+    <div class="row align-items-center justify-content-center g-4">
 
-            <!-- IMAGEN -->
-            <div class="col-md-6 text-center">
+        <!-- IMAGEN -->
+        <div class="col-12 col-md-6 text-center">
 
-                <img id="imagen-producto"
-                     class="img-fluid rounded"
-                     src=""
-                     alt="Producto">
+            <img id="imagen-producto"
+                 class="img-fluid rounded shadow"
+                 src=""
+                 alt="Producto">
+
+        </div>
+
+        <!-- INFO -->
+        <div class="col-12 col-md-5 text-white">
+
+            <h1 id="nombre-producto"
+                class="mb-3">
+            </h1>
+
+            <p id="descripcion-producto"
+               class="mb-3">
+            </p>
+
+            <h3 id="precio-producto"
+                class="mb-4">
+            </h3>
+
+            <!-- CANTIDAD -->
+            <div class="mb-4">
+
+                <label class="form-label">
+
+                    Cantidad
+
+                </label>
+
+                <input type="number"
+                       id="cantidad"
+                       class="form-control cantidad-input"
+                       min="1"
+                       max="10"
+                       value="1">
 
             </div>
 
-            <!-- INFORMACIÓN -->
-            <div class="col-md-6">
+            <!-- BOTONES -->
+            <div class="d-flex flex-column flex-md-row gap-3">
 
-                <h1 id="nombre-producto"
-                    class="mb-3">
-                </h1>
+                <!-- WHATSAPP -->
+                <button class="btn btn-success"
+                        onclick="enviarPedido()">
 
-                <p id="descripcion-producto"
-                   class="mb-3">
-                </p>
+                    Pedir por WhatsApp
 
-                <h3 id="precio-producto"
-                    class="mb-4">
-                </h3>
+                </button>
 
-                <!-- CANTIDAD -->
-                <div class="mb-3">
+                <!-- AGREGAR -->
+                <button class="btn btn-warning"
+                        onclick="agregarCarrito()">
 
-                    <label class="form-label">
-                        Cantidad
-                    </label>
+                    Agregar al carrito
 
-                    <input type="number"
-                           id="cantidad"
-                           class="form-control"
-                           value="1"
-                           min="1">
+                </button>
 
-                </div>
+            </div>
 
-                <!-- BOTONES -->
-                <div class="d-flex gap-3 flex-wrap">
+            <!-- NAVEGACION -->
+            <div class="d-flex gap-3 mt-4 flex-wrap">
 
-                    <button class="btn btn-dark"
-                            onclick="cambiarProducto(-1)">
+                <button class="btn btn-dark"
+                        onclick="cambiarProducto(-1)">
 
-                        ← Anterior
+                    ← Anterior
 
-                    </button>
+                </button>
 
-                    <button class="btn btn-dark"
-                            onclick="cambiarProducto(1)">
+                <button class="btn btn-dark"
+                        onclick="cambiarProducto(1)">
 
-                        Siguiente →
+                    Siguiente →
 
-                    </button>
-
-                    <button class="btn btn-success"
-                            onclick="enviarPedido()">
-
-                        Pedir por WhatsApp
-
-                    </button>
-
-                </div>
+                </button>
 
             </div>
 
         </div>
 
-    </main>
+    </div>
 
-<footer class="footer py-5 bg-black text-white text-center">
+</main>
+
+<!-- FOOTER -->
+<footer class="footer bg-black text-white text-center py-2">
 
     <div class="container">
 
-        <p class="h3 mb-4">
+        <p class="h3 mb-3">
+
             STREET CROWN HATS
+
         </p>
 
-        <div class="d-flex justify-content-center gap-4 mb-4">
+        <!-- REDES -->
+        <div class="d-flex justify-content-center gap-4 mb-3">
 
             <a href="https://www.instagram.com/streetcrownhats2026"
                target="_blank"
@@ -216,20 +374,23 @@
 
         <hr class="bg-secondary">
 
-        <p class="small text-secondary mt-4">
-            &copy; 2026 STREET CROWN HATS.
-            Todos los derechos reservados.
+        <p class="small text-secondary mt-3">
+
+            &copy; 2026 STREET CROWN HATS
+
         </p>
 
     </div>
 
 </footer>
 
-<!-- TU JS -->
+<!-- JS PRODUCTOS -->
 <script src="/js/producto.js"></script>
 
-<script src="/js/tienda.js"></script>
+<!-- JS CARRITO -->
+<script src="/js/carrito.js"></script>
 
+<!-- BOOTSTRAP -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>

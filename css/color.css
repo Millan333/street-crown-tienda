@@ -502,3 +502,254 @@ body{
     max-width:550px;
     width:100%;
 }
+/* =========================
+   RESPONSIVE TELEFONO
+========================= */
+
+@media (max-width:768px){
+
+    /* TITULOS */
+    h1{
+        font-size: 2.8rem;
+    }
+
+    h2{
+        font-size: 2.2rem;
+    }
+
+    h3{
+        font-size: 2rem;
+    }
+
+    /* CONTENEDOR */
+    .contenedor{
+        width: 95%;
+        padding: 0 10px;
+    }
+
+    /* GRID PRODUCTOS */
+    .grid{
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    /* TARJETAS */
+    .producto{
+        padding: 1.5rem;
+    }
+
+    .producto__imagen{
+        max-width: 100%;
+    }
+
+    .producto__nombre{
+        font-size: 3rem;
+    }
+
+    .producto__precio{
+        font-size: 2.2rem;
+    }
+
+    /* HEADER */
+    .header{
+        height: auto;
+    }
+
+    .logo{
+        width: 7rem;
+        height: auto;
+    }
+
+    /* NAVEGACION */
+    .navegacion{
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .navegacion__enlace{
+        font-size: 2rem;
+        margin-right: 0;
+    }
+
+    /* HERO */
+    .hero{
+        height: auto;
+        padding: 4rem 2rem;
+    }
+
+    .hero-content h1{
+        font-size: 3rem;
+    }
+
+    .hero-content h2{
+        font-size: 1.6rem;
+    }
+
+    /* PRODUCTO DETALLE */
+    .contenido-producto{
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .slider-producto{
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #imagenProducto,
+    #imagen-producto{
+        max-width: 100%;
+    }
+
+    .cantidad-input,
+    .talla-select{
+        width: 120px !important;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    /* BOTONES */
+    .d-flex{
+        flex-wrap: wrap;
+    }
+
+    .btn{
+        font-size: 1.4rem;
+    }
+
+    /* FOOTER */
+    .footer{
+        padding: 2rem 1rem;
+    }
+
+    .footer__icono{
+        font-size: 1.6rem;
+    }
+
+}
+
+/* =========================
+   CARRITO
+========================= */
+
+.carrito-item{
+    display:flex;
+    gap:10px;
+    margin-bottom:15px;
+    align-items:center;
+}
+
+.carrito-item img{
+    width:60px;
+    height:60px;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+#mini-carrito{
+    max-height:400px;
+    overflow-y:auto;
+    border-radius:15px;
+}
+
+#mini-carrito p{
+    color:black;
+    margin:0;
+    font-size:14px;
+}
+
+#mini-carrito strong{
+    color:black;
+}
+
+/* BOTON CARRITO */
+.bi-cart-fill{
+    font-size:2rem;
+}
+
+/* CONTADOR */
+#contador-carrito{
+    font-size:1rem;
+}
+
+/* MOVIL */
+@media(max-width:768px){
+
+    #mini-carrito{
+        display:none;
+    }
+
+}
+/* =========================
+   CARRITO
+========================= */
+
+#mini-carrito{
+    max-height:400px;
+    overflow-y:auto;
+    border-radius:15px;
+}
+
+.carrito-item{
+    display:flex;
+    align-items:center;
+}
+
+.carrito-item img{
+    width:60px;
+    height:60px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+#mini-carrito p{
+    font-size:14px;
+    margin:0;
+}
+
+#contador-carrito{
+    font-size:1rem;
+}
+
+.cantidad-input{
+    width:120px !important;
+    height:45px;
+    font-size:18px;
+    text-align:center;
+    border-radius:10px;
+}
+
+.talla-select{
+    width:120px !important;
+    height:45px;
+    border-radius:10px;
+}
+
+/* TELEFONO */
+@media(max-width:768px){
+
+    .navbar-nav{
+        gap:10px;
+    }
+
+    #mini-carrito{
+        display:none;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    #imagen-producto{
+        max-width:100%;
+    }
+
+}
+.bi-cart-fill{
+    color:white !important;
+    display:inline-block !important;
+    font-size:2rem !important;
+}

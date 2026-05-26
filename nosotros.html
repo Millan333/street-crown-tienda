@@ -15,53 +15,211 @@
 
 <body>
 
-    <header class="header sticky-top bg-dark">
-        <nav class="navbar navbar-expand-lg navbar-dark container">
-            <div class="container-fluid">
+    <!-- HEADER -->
+<header class="header sticky-top bg-dark">
 
-                <a class="navbar-brand" href="index.html">
-                    <img class="logo" src="/img1/Street.png" alt="Street Crown Hats Logo" width="60">
-                </a>
+    <nav class="navbar navbar-expand-lg navbar-dark container">
 
-                <button class="navbar-toggler"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#navbarNav"
-                        aria-controls="navbarNav"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <div class="container-fluid">
 
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto align-items-center text-white bg-dark">
+            <!-- LOGO -->
+            <a class="navbar-brand"
+               href="index.html">
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle"
-                               href="#"
-                               role="button"
-                               data-bs-toggle="dropdown"
-                               aria-expanded="false">
-                                Catálogo
-                            </a>
+                <img class="logo"
+                     src="/img1/Street.png"
+                     alt="Street Crown Hats Logo"
+                     width="60">
 
-                            <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item" href="gorras.html">Gorras</a></li>
-                                <li><a class="dropdown-item" href="playeras.html">Camisas</a></li>
-                                <li><a class="dropdown-item" href="#">Sudaderas</a></li>
-                            </ul>
-                        </li>
+            </a>
 
-                        <li class="nav-item">
-                            <a class="nav-link mx-lg-3" href="nosotros.html">Nosotros</a>
-                        </li>
-                        
-                    </ul>
-                </div>
+            <!-- BOTON MOVIL -->
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <!-- MENU -->
+            <div class="collapse navbar-collapse"
+                 id="navbarNav">
+
+                <ul class="navbar-nav ms-auto align-items-center text-white bg-dark">
+
+                    <!-- CATALOGO -->
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link dropdown-toggle"
+                           href="#"
+                           role="button"
+                           data-bs-toggle="dropdown"
+                           aria-expanded="false">
+
+                            Catálogo
+
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-dark">
+
+                            <li>
+
+                                <a class="dropdown-item"
+                                   href="gorras.html">
+
+                                    Gorras
+
+                                </a>
+
+                            </li>
+
+                            <li>
+
+                                <a class="dropdown-item"
+                                   href="playeras.html">
+
+                                    Camisas
+
+                                </a>
+
+                            </li>
+
+                            <li>
+
+                                <a class="dropdown-item"
+                                   href="#">
+
+                                    Sudaderas
+
+                                </a>
+
+                            </li>
+
+                        </ul>
+
+                    </li>
+
+                    <!-- NOSOTROS -->
+                    <li class="nav-item">
+
+                        <a class="nav-link mx-lg-3"
+                           href="nosotros.html">
+
+                            Nosotros
+
+                        </a>
+
+                    </li>
+
+                    <!-- CARRITO -->
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link d-flex align-items-center"
+                           href="#"
+                           role="button"
+                           data-bs-toggle="dropdown"
+                           onclick="abrirCarritoMovil()">
+
+                            <!-- ICONO -->
+                            <span style="
+                                font-size:2rem;
+                                color:white;
+                                line-height:1;
+                            ">
+
+                                🛒
+
+                            </span>
+
+                            <!-- CONTADOR -->
+                            <span id="contador-carrito"
+                                  class="badge rounded-pill bg-danger ms-2">
+
+                                0
+
+                            </span>
+
+                        </a>
+
+                        <!-- MINI CARRITO -->
+                        <ul class="dropdown-menu dropdown-menu-end p-3"
+                            id="mini-carrito"
+                            style="
+                                width:320px;
+                                max-height:400px;
+                                overflow-y:auto;
+                            ">
+
+                            <!-- TITULO -->
+                            <li class="d-flex justify-content-between align-items-center mb-2">
+
+                                <h5 class="text-dark m-0">
+
+                                    Carrito
+
+                                </h5>
+
+                                <!-- BOTON VACIAR -->
+                                <button class="btn btn-danger btn-sm"
+                                        onclick="vaciarCarrito()">
+
+                                    Vaciar
+
+                                </button>
+
+                            </li>
+
+                            <hr>
+
+                            <!-- PRODUCTOS -->
+                            <div id="lista-carrito"></div>
+
+                            <hr>
+
+                            <!-- TOTAL -->
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+
+                                <strong class="text-dark">
+
+                                    Total:
+
+                                </strong>
+
+                                <strong class="text-dark"
+                                        id="total-carrito">
+
+                                    $0
+
+                                </strong>
+
+                            </div>
+
+                            <!-- BOTON COMPRAR -->
+                            <button class="btn btn-success w-100"
+                                    onclick="comprarWhatsApp()">
+
+                                Comprar
+
+                            </button>
+
+                        </ul>
+
+                    </li>
+
+                </ul>
 
             </div>
-        </nav>
-    </header>
+
+        </div>
+
+    </nav>
+
+</header>
 
     <main class="container py-5">
         <h1 class="text-center mb-5">Nosotros</h1>
@@ -125,6 +283,7 @@
     </footer>
 
     <script src="/js/tienda.js"></script>
+    <script src="/js/carrito.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
