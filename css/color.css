@@ -48,20 +48,25 @@ h1{
 }
 h2{
     font-size: 3.2rem;
+    text-align: center;
 }
 h3{
     font-size: 2.4rem;
 }
 .logo{
-    width: 30rem; /* Ajusta este número a tu gusto */
-    display: block;
-    margin: 3rem auto; /* Para centrarla si es necesario */
+    width: 10rem; 
+    display:inline;
+    margin:0;
+    vertical-align: middle;
+    height: 8vh;
+    grid-column: 1/2;
 }
 
 /** header **/
 .header{
-    display: flex;
     justify-content: center;
+    width: 100%;
+    height: 10vh;
 }
 /** footer **/
 .footer{
@@ -74,17 +79,35 @@ text-align: center;
 font-family: var(--fuentePrincipal);
 }
 /** Navegacion **/
-.navegacion{
+.navegacion {
     background-color: var(--grisoscuro);
     padding: 1rem 0;
-    display: flex;
-    justify-content: center;
+    width: 100%;
+    height: auto; 
+    display: grid;; 
+    align-items: center; 
+    grid-template-columns: repeat(3,1fr);
+}
+.navegacion > a:first-of-type {
+    grid-column: 1 / 2;
+    justify-self: center;
+}
+
+/*  */
+
+.navegacion > .espacio {
+    grid-column: 3 / 4;
+    justify-self: center;
 }
 .navegacion__enlace{
 font-family: var(--fuentePrincipal);
 color: var(--blanco);
 font-size: 3rem;
 margin-right: 2rem;
+list-style: none;
+}
+.espacio{
+    padding-left: 2rem;
 }
 .navegacion__enlace:last-of-type{
     margin-right: 0;
@@ -141,10 +164,10 @@ background-size: cover ;
 .grafico__gorras{
 grid-area: 2/3 ;
 grid-column: 1/3;
-background-image: url(../img/gorra10.png);
+background-image: url(/img1/gorra10.png);
 }
 .grafico__node{
-    background-image: url(../img/gorra1.png);
+   background-image: url(/img1/gorra11.png);
     grid-row:6/7 ;
 }
 @media (min-width:768px) {
@@ -190,9 +213,9 @@ width: 100%;
 }
 
 .boton-comprar:hover {
-  background-color: #0056b3; 
-  transform: translateY(-2px); 
-  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.5); 
+    background-color: var(--oro);
+    color: var(--negro-mate);
+    box-shadow: 0px 0px 15px var(--oro);
 }
 
 .boton-comprar:active {
@@ -249,4 +272,233 @@ width: 100%;
 .boton-comprar:hover {
     background-color: #fff;
     color: #000;
+}
+/* 1. Agranda el contenedor blanco */
+.dropdown-menu {
+    min-width: 150px; /* Ajusta este valor para el ancho */
+    padding: 10px;    /* Espacio interno general */
+    border-radius: 8px; /* Opcional: bordes más suaves */
+}
+
+/* 2. Agranda el texto y el espacio de los enlaces (Gorras, Camisas, etc.) */
+.dropdown-item {
+    font-size: 3rem; /* Hace la letra más grande */
+    padding: 5px 9px; /* Más espacio arriba/abajo y a los lados */
+}
+/* Sección Hero */
+.hero {
+    height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                url(/img1/Street.png) no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    letter-spacing: 2px;
+}
+
+.highlight {
+    color: #f1c40f;
+}
+
+.hero-content h2{
+    margin: 20px 0;
+    max-width: 900px;
+    font-size: 1.9rem;
+    font-family: var(--fuentePrincipal);
+    text-shadow: 0 0 20px rgba(241, 196, 15, 0.8);
+}
+.footer {
+    background-color: #000000; /* Fondo negro */
+    padding: 40px 0;
+    text-align: center;
+    color: white;
+}
+
+.footer__logo {
+    color: #f1c40f; /* Dorado/Amarillo de tu marca */
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.footer__redes {
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* Espacio entre iconos */
+    margin-bottom: 20px;
+}
+
+.footer__icono {
+    color: white;
+    font-size: 2rem; /* Tamaño de los iconos */
+    transition: color 0.3s ease; /* Suaviza el cambio de color */
+}
+
+/* Efecto al pasar el mouse por los iconos */
+.footer__icono:hover {
+    color: #f1c40f; /* Cambia a dorado al pasar el mouse */
+}
+
+.footer__copyright {
+    font-size: 0.9rem;
+    color: #cccccc;
+}
+
+.can{
+    background-color: #fff;
+}
+.input-cantidad {
+    width: 5px;          /* Ajusta este valor a tu gusto */
+    padding: 2px;         /* Espacio interno para que no se vea apretado */
+    border-radius: 5px;   /* Para que las esquinas sean redondeadas como tu botón */
+    border: 1px solid #ccc; 
+    text-align: center;   /* Centra el número dentro del cuadro */
+}
+.form-label{
+    color: white !important;
+}
+body{
+    background:#111;
+    color:white;
+}
+
+.slider-producto{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:30px;
+    margin-top:50px;
+}
+
+.contenido-producto{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:60px;
+    width:100%;
+}
+
+.imagen-container{
+    flex:1;
+    text-align:center;
+}
+
+#imagenProducto{
+    width:100%;
+    max-width:600px;
+    border-radius:10px;
+}
+
+.info-producto{
+    flex:1;
+    color:white;
+}
+
+.flecha{
+    background:black;
+    color:white;
+    border:none;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    font-size:30px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.flecha:hover{
+    background:#333;
+    transform:scale(1.1);
+}
+
+.input-cantidad{
+    max-width:200px;
+}
+
+@media(max-width:992px){
+
+    .contenido-producto{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .slider-producto{
+        gap:10px;
+    }
+
+    #imagenProducto{
+        max-width:100%;
+    }
+
+}
+.input-cantidad{
+    width:100px !important;
+    height: 45px;
+    font-size:22px;
+    text-align:center;
+    border-radius:10px;
+}
+.flecha{
+    background:black;
+    color:white;
+    border:none;
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    font-size:35px;
+    cursor:pointer;
+    transition:0.3s;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.flecha:hover{
+    background:#333;
+    transform:scale(1.1);
+}
+.flecha{
+    background:black;
+    color:white;
+    border:none;
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    font-size:35px;
+    cursor:pointer;
+    transition:0.3s;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.flecha:hover{
+    background:#333;
+    transform:scale(1.1);
+}
+
+.cantidad-input{
+    width:180px !important;
+    height:55px;
+    font-size:22px;
+    text-align:center;
+    border-radius:10px;
+}
+
+.talla-select{
+    width:180px !important;
+    height:55px;
+    font-size:20px;
+    border-radius:10px;
+}
+
+#imagen-producto{
+    max-width:550px;
+    width:100%;
 }
