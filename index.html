@@ -38,18 +38,45 @@
 
             </a>
 
-            <!-- BOTON MOVIL -->
-            <button class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav"
-                    aria-controls="navbarNav"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation">
+            <!-- DERECHA MOVIL -->
+            <div class="d-flex align-items-center gap-3">
 
-                <span class="navbar-toggler-icon"></span>
+                <!-- CARRITO MOVIL -->
+                <a class="nav-link d-lg-none position-relative text-white"
+                   href="#"
+                   role="button"
+                   onclick="abrirCarritoMovil(event)">
 
-            </button>
+                    <span style="
+                        font-size:2rem;
+                        line-height:1;
+                    ">
+                        🛒
+                    </span>
+
+                    <span id="contador-carrito"
+                          class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+
+                        0
+
+                    </span>
+
+                </a>
+
+                <!-- HAMBURGUESA -->
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav"
+                        aria-controls="navbarNav"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+
+                    <span class="navbar-toggler-icon"></span>
+
+                </button>
+
+            </div>
 
             <!-- MENU -->
             <div class="collapse navbar-collapse"
@@ -94,17 +121,6 @@
 
                             </li>
 
-                            <li>
-
-                                <a class="dropdown-item"
-                                   href="#">
-
-                                    Sudaderas
-
-                                </a>
-
-                            </li>
-
                         </ul>
 
                     </li>
@@ -121,29 +137,26 @@
 
                     </li>
 
-                    <!-- CARRITO -->
-                    <li class="nav-item dropdown">
+                    <!-- CARRITO DESKTOP -->
+                    <li class="nav-item dropdown d-none d-lg-block ms-lg-3">
 
-                        <a class="nav-link d-flex align-items-center"
+                        <a class="nav-link d-flex align-items-center position-relative text-white"
                            href="#"
                            role="button"
                            data-bs-toggle="dropdown"
-                           onclick="abrirCarritoMovil()">
+                           aria-expanded="false">
 
                             <!-- ICONO -->
                             <span style="
                                 font-size:2rem;
-                                color:white;
                                 line-height:1;
                             ">
-
                                 🛒
-
                             </span>
 
                             <!-- CONTADOR -->
-                            <span id="contador-carrito"
-                                  class="badge rounded-pill bg-danger ms-2">
+                            <span id="contador-carrito-desktop"
+                                  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
 
                                 0
 
@@ -160,55 +173,33 @@
                                 overflow-y:auto;
                             ">
 
-                            <!-- TITULO -->
-                            <li class="d-flex justify-content-between align-items-center mb-2">
+                            <li>
 
-                                <h5 class="text-dark m-0">
+                                <h5 class="text-dark mb-3">
 
                                     Carrito
 
                                 </h5>
 
-                                <!-- BOTON VACIAR -->
-                                <button class="btn btn-danger btn-sm"
-                                        onclick="vaciarCarrito()">
-
-                                    Vaciar
-
-                                </button>
-
                             </li>
-
-                            <hr>
 
                             <!-- PRODUCTOS -->
                             <div id="lista-carrito"></div>
 
                             <hr>
 
-                            <!-- TOTAL -->
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-
-                                <strong class="text-dark">
-
-                                    Total:
-
-                                </strong>
-
-                                <strong class="text-dark"
-                                        id="total-carrito">
-
-                                    $0
-
-                                </strong>
-
-                            </div>
-
-                            <!-- BOTON COMPRAR -->
-                            <button class="btn btn-success w-100"
+                            <!-- BOTONES -->
+                            <button class="btn btn-success w-100 mb-2"
                                     onclick="comprarWhatsApp()">
 
                                 Comprar
+
+                            </button>
+
+                            <button class="btn btn-danger w-100"
+                                    onclick="vaciarCarrito()">
+
+                                Vaciar carrito
 
                             </button>
 
@@ -241,8 +232,8 @@
                 </p>
 
                 <div class="mt-4">
-                    <a href="catalogo.html" class="btn btn-outline-light btn-lg px-5">
-                        VER COLECCIÓN
+                    <a href="#" class="btn btn-outline-light btn-lg px-5">
+                        Proximamente
                     </a>
                 </div>
 
@@ -280,6 +271,105 @@
             <p class="small text-secondary mt-4">
                 &copy; 2026 STREET CROWN HATS. Todos los derechos reservados.
             </p>
+
+            <!-- =========================
+     WHATSAPP FLOTANTE
+========================= -->
+
+<div class="whatsapp-container">
+
+    <!-- BOTON -->
+    <button id="btn-whatsapp"
+            class="whatsapp-btn">
+
+        <i class="bi bi-whatsapp"></i>
+
+    </button>
+
+    <!-- MINI CHAT -->
+    <div id="whatsapp-chat"
+         class="whatsapp-chat">
+
+        <div class="chat-header">
+
+            STREET CROWN HATS
+
+        </div>
+
+        <div class="chat-body">
+
+            <p>
+
+                👋 Hola,
+                ¿necesitas ayuda con tu pedido?
+
+            </p>
+
+            <a href="https://wa.me/525653971960?text=Hola,%20quiero%20información%20sobre%20sus%20productos"
+               target="_blank"
+               class="btn btn-success w-100">
+
+                Abrir WhatsApp
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     SCRIPT WHATSAPP
+========================= -->
+
+<script>
+
+const btnWhatsapp =
+document.getElementById(
+    "btn-whatsapp"
+);
+
+const chatWhatsapp =
+document.getElementById(
+    "whatsapp-chat"
+);
+
+/* ABRIR Y CERRAR */
+btnWhatsapp.addEventListener(
+    "click",
+    (e) => {
+
+        e.stopPropagation();
+
+        chatWhatsapp.classList.toggle(
+            "activo"
+        );
+
+    }
+);
+
+/* CERRAR SI PICA AFUERA */
+document.addEventListener(
+    "click",
+    (e) => {
+
+        if(
+            !chatWhatsapp.contains(e.target)
+            &&
+            !btnWhatsapp.contains(e.target)
+        ){
+
+            chatWhatsapp.classList.remove(
+                "activo"
+            );
+
+        }
+
+    }
+);
+
+</script>
 
         </div>
     </footer>

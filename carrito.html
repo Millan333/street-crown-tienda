@@ -8,7 +8,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Carrito | STREET CROWN HATS</title>
+    <title>STREET CROWN HATS</title>
 
     <!-- CSS -->
     <link rel="stylesheet"
@@ -51,18 +51,40 @@
 
             </a>
 
-            <!-- BOTON MOVIL -->
-            <button class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav"
-                    aria-controls="navbarNav"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation">
+            <!-- DERECHA MOVIL -->
+            <div class="d-flex align-items-center gap-3">
 
-                <span class="navbar-toggler-icon"></span>
+                <!-- CARRITO MOVIL -->
+                <a class="nav-link d-lg-none position-relative text-white"
+                   href="carrito.html">
 
-            </button>
+                    <span style="
+                        font-size:2rem;
+                        line-height:1;
+                    ">
+                        🛒
+                    </span>
+
+                    <span id="contador-carrito"
+                          class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+
+                        0
+
+                    </span>
+
+                </a>
+
+                <!-- HAMBURGUESA -->
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav">
+
+                    <span class="navbar-toggler-icon"></span>
+
+                </button>
+
+            </div>
 
             <!-- MENU -->
             <div class="collapse navbar-collapse"
@@ -70,31 +92,50 @@
 
                 <ul class="navbar-nav ms-auto align-items-center text-white bg-dark">
 
-                    <li class="nav-item">
+                    <!-- CATALOGO -->
+                    <li class="nav-item dropdown">
 
-                        <a class="nav-link"
-                           href="gorras.html">
+                        <a class="nav-link dropdown-toggle"
+                           href="#"
+                           role="button"
+                           data-bs-toggle="dropdown">
 
-                            Gorras
-
-                        </a>
-
-                    </li>
-
-                    <li class="nav-item">
-
-                        <a class="nav-link"
-                           href="playeras.html">
-
-                            Camisas
+                            Catálogo
 
                         </a>
 
+                        <ul class="dropdown-menu dropdown-menu-dark">
+
+                            <li>
+
+                                <a class="dropdown-item"
+                                   href="gorras.html">
+
+                                    Gorras
+
+                                </a>
+
+                            </li>
+
+                            <li>
+
+                                <a class="dropdown-item"
+                                   href="playeras.html">
+
+                                    Camisas
+
+                                </a>
+
+                            </li>
+
+                        </ul>
+
                     </li>
 
+                    <!-- NOSOTROS -->
                     <li class="nav-item">
 
-                        <a class="nav-link"
+                        <a class="nav-link mx-lg-3"
                            href="nosotros.html">
 
                             Nosotros
@@ -103,22 +144,21 @@
 
                     </li>
 
-                    <!-- ICONO -->
-                    <li class="nav-item">
+                    <!-- CARRITO DESKTOP -->
+                    <li class="nav-item d-none d-lg-block">
 
-                        <a class="nav-link d-flex align-items-center"
+                        <a class="nav-link position-relative text-white"
                            href="carrito.html">
 
                             <span style="
                                 font-size:2rem;
-                                color:white;
                                 line-height:1;
                             ">
                                 🛒
                             </span>
 
-                            <span id="contador-carrito"
-                                  class="badge rounded-pill bg-danger ms-2">
+                            <span id="contador-carrito-desktop"
+                                  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
 
                                 0
 
@@ -234,6 +274,105 @@
             Todos los derechos reservados.
 
         </p>
+
+<!-- =========================
+     WHATSAPP FLOTANTE
+========================= -->
+
+<div class="whatsapp-container">
+
+    <!-- BOTON -->
+    <button id="btn-whatsapp"
+            class="whatsapp-btn">
+
+        <i class="bi bi-whatsapp"></i>
+
+    </button>
+
+    <!-- MINI CHAT -->
+    <div id="whatsapp-chat"
+         class="whatsapp-chat">
+
+        <div class="chat-header">
+
+            STREET CROWN HATS
+
+        </div>
+
+        <div class="chat-body">
+
+            <p>
+
+                👋 Hola,
+                ¿necesitas ayuda con tu pedido?
+
+            </p>
+
+            <a href="https://wa.me/525653971960?text=Hola,%20quiero%20información%20sobre%20sus%20productos"
+               target="_blank"
+               class="btn btn-success w-100">
+
+                Abrir WhatsApp
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     SCRIPT WHATSAPP
+========================= -->
+
+<script>
+
+const btnWhatsapp =
+document.getElementById(
+    "btn-whatsapp"
+);
+
+const chatWhatsapp =
+document.getElementById(
+    "whatsapp-chat"
+);
+
+/* ABRIR Y CERRAR */
+btnWhatsapp.addEventListener(
+    "click",
+    (e) => {
+
+        e.stopPropagation();
+
+        chatWhatsapp.classList.toggle(
+            "activo"
+        );
+
+    }
+);
+
+/* CERRAR SI PICA AFUERA */
+document.addEventListener(
+    "click",
+    (e) => {
+
+        if(
+            !chatWhatsapp.contains(e.target)
+            &&
+            !btnWhatsapp.contains(e.target)
+        ){
+
+            chatWhatsapp.classList.remove(
+                "activo"
+            );
+
+        }
+
+    }
+);
+
+</script>
 
     </div>
 

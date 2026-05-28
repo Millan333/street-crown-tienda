@@ -753,3 +753,155 @@ body{
     display:inline-block !important;
     font-size:2rem !important;
 }
+body{
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+main{
+
+    flex: 1;
+
+}
+.hero{
+
+    min-height: 75vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+.hero{
+
+    background-size: cover;
+
+    background-position: center;
+
+}
+/* =========================
+   WHATSAPP FLOTANTE
+========================= */
+
+.whatsapp-container{
+
+    position: fixed;
+
+    bottom: 20px;
+
+    right: 20px;
+
+    z-index: 9999;
+
+}
+
+/* BOTON */
+
+.whatsapp-btn{
+
+    width: 65px;
+
+    height: 65px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background: #25d366;
+
+    color: white;
+
+    font-size: 2rem;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,.4);
+
+    transition: .3s;
+
+}
+
+.whatsapp-btn:hover{
+
+    transform: scale(1.1);
+
+}
+
+/* CHAT */
+
+.whatsapp-chat{
+
+    position: absolute;
+
+    bottom: 80px;
+
+    right: 0;
+
+    width: 280px;
+
+    background: white;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,.4);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(20px);
+
+    transition: .3s;
+
+}
+
+/* ACTIVO */
+
+.whatsapp-chat.activo{
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+
+}
+
+/* HEADER */
+
+.chat-header{
+
+    background: #25d366;
+
+    color: white;
+
+    padding: 15px;
+
+    font-weight: bold;
+
+    text-align: center;
+
+}
+
+/* BODY */
+
+.chat-body{
+
+    padding: 15px;
+
+}
+
+.chat-body p{
+
+    color: #111;
+
+    margin-bottom: 15px;
+
+}

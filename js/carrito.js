@@ -10,17 +10,20 @@ function agregarCarrito(){
     let tallaElemento =
     document.getElementById("talla");
 
+    let cantidadElemento =
+    document.getElementById("cantidad");
+
     const producto = {
 
         nombre:
         document.getElementById(
             "nombre-producto"
-        ).textContent,
+        ).textContent.trim(),
 
         precio:
         document.getElementById(
             "precio-producto"
-        ).textContent,
+        ).textContent.trim(),
 
         imagen:
         document.getElementById(
@@ -32,11 +35,10 @@ function agregarCarrito(){
         ? tallaElemento.value
         : "Única",
 
-        cantidad: parseInt(
-            document.getElementById(
-                "cantidad"
-            ).value
-        )
+        cantidad:
+        parseInt(
+            cantidadElemento.value
+        ) || 1
 
     };
 
@@ -51,13 +53,25 @@ function agregarCarrito(){
 
     mostrarCarrito();
 
+    alert("Producto agregado al carrito");
+
 }
 
 /* =========================
-   CONTADOR
+   ACTUALIZAR CONTADOR
 ========================= */
 function actualizarContador(){
 
+    let totalProductos = 0;
+
+    carrito.forEach(producto => {
+
+        totalProductos +=
+        producto.cantidad;
+
+    });
+
+    /* CONTADOR MOVIL */
     let contador =
     document.getElementById(
         "contador-carrito"
@@ -65,16 +79,20 @@ function actualizarContador(){
 
     if(contador){
 
-        let totalProductos = 0;
-
-        carrito.forEach(producto => {
-
-            totalProductos +=
-            producto.cantidad;
-
-        });
-
         contador.textContent =
+        totalProductos;
+
+    }
+
+    /* CONTADOR DESKTOP */
+    let contadorDesktop =
+    document.getElementById(
+        "contador-carrito-desktop"
+    );
+
+    if(contadorDesktop){
+
+        contadorDesktop.textContent =
         totalProductos;
 
     }
@@ -88,25 +106,75 @@ function mostrarCarrito(){
 
     let lista =
     document.getElementById(
+        "carrito-contenedor"
+    );
+
+    let listaMini =
+    document.getElementById(
         "lista-carrito"
     );
 
-    if(!lista) return;
+    if(!lista && !listaMini){
 
-    lista.innerHTML = "";
+        return;
 
-    /* SI ESTA VACIO */
+    }
+
+    /* LIMPIAR */
+    if(lista){
+
+        lista.innerHTML = "";
+
+    }
+
+    if(listaMini){
+
+        listaMini.innerHTML = "";
+
+    }
+
+    /* =========================
+       CARRITO VACIO
+    ========================= */
     if(carrito.length === 0){
 
-        lista.innerHTML = `
+        let vacioHTML = `
 
-            <p class="text-dark text-center">
+            <div class="text-center text-white py-5">
 
-                Tu carrito está vacío
+                <i class="bi bi-cart-x"
+                   style="font-size:4rem;"></i>
 
-            </p>
+                <h3 class="mt-3">
+
+                    Tu carrito está vacío
+
+                </h3>
+
+            </div>
 
         `;
+
+        if(lista){
+
+            lista.innerHTML =
+            vacioHTML;
+
+        }
+
+        if(listaMini){
+
+            listaMini.innerHTML = `
+
+                <p class="text-dark text-center">
+
+                    Tu carrito está vacío
+
+                </p>
+
+            `;
+
+        }
 
         let totalCarrito =
         document.getElementById(
@@ -135,7 +203,7 @@ function mostrarCarrito(){
             .replace("MXN","")
             .trim()
 
-        );
+        ) || 0;
 
         let subtotal =
         precioNumero *
@@ -143,71 +211,149 @@ function mostrarCarrito(){
 
         total += subtotal;
 
-        lista.innerHTML += `
+        /* =========================
+           CARRITO GRANDE
+        ========================= */
+        let productoHTML = `
 
-            <div class="carrito-item d-flex gap-2 mb-3 align-items-center bg-white p-2 rounded">
+        <div class="card bg-dark text-white mb-4 border border-secondary shadow-lg">
 
-                <img src="${producto.imagen}"
-                     width="70"
-                     height="70"
-                     style="
-                        object-fit:cover;
-                        border-radius:10px;
-                     ">
+            <div class="row g-0 align-items-center">
 
-                <div class="flex-grow-1 text-dark">
+                <!-- IMAGEN -->
+                <div class="col-12 col-md-4 text-center p-3">
 
-                    <strong>
-
-                        ${producto.nombre}
-
-                    </strong>
-
-                    <p class="m-0">
-
-                        Talla:
-                        ${producto.talla}
-
-                    </p>
-
-                    <p class="m-0">
-
-                        Cantidad:
-                        ${producto.cantidad}
-
-                    </p>
-
-                    <p class="m-0">
-
-                        Precio:
-                        ${producto.precio}
-
-                    </p>
-
-                    <p class="m-0 fw-bold">
-
-                        Subtotal:
-                        $${subtotal}
-
-                    </p>
+                    <img src="${producto.imagen}"
+                         class="img-fluid rounded"
+                         style="
+                            width:220px;
+                            height:220px;
+                            object-fit:cover;
+                         ">
 
                 </div>
 
-                <!-- ELIMINAR -->
-                <button class="btn btn-danger btn-sm"
-                        onclick="eliminarProducto(${index})">
+                <!-- INFO -->
+                <div class="col-12 col-md-8">
 
-                    <i class="bi bi-trash"></i>
+                    <div class="card-body">
 
-                </button>
+                        <h2 class="fw-bold mb-3">
+
+                            ${producto.nombre}
+
+                        </h2>
+
+                        <p class="mb-2 fs-5">
+
+                            <strong>Talla:</strong>
+                            ${producto.talla}
+
+                        </p>
+
+                        <p class="mb-2 fs-5">
+
+                            <strong>Cantidad:</strong>
+                            ${producto.cantidad}
+
+                        </p>
+
+                        <p class="mb-2 fs-5">
+
+                            <strong>Precio:</strong>
+                            ${producto.precio}
+
+                        </p>
+
+                        <p class="fw-bold text-warning fs-4">
+
+                            Subtotal:
+                            $${subtotal}
+
+                        </p>
+
+                        <!-- BOTON -->
+                        <button class="btn btn-danger mt-3"
+                                onclick="eliminarProducto(${index})">
+
+                            <i class="bi bi-trash"></i>
+
+                            Eliminar producto
+
+                        </button>
+
+                    </div>
+
+                </div>
 
             </div>
 
+        </div>
+
         `;
+
+        /* =========================
+           MINI CARRITO NAV
+        ========================= */
+        let miniHTML = `
+
+        <div class="d-flex gap-2 mb-3 border-bottom pb-2">
+
+            <img src="${producto.imagen}"
+                 width="60"
+                 height="60"
+                 style="
+                    object-fit:cover;
+                    border-radius:10px;
+                 ">
+
+            <div class="flex-grow-1 text-dark">
+
+                <strong>
+
+                    ${producto.nombre}
+
+                </strong>
+
+                <p class="m-0">
+
+                    Cantidad:
+                    ${producto.cantidad}
+
+                </p>
+
+                <p class="m-0">
+
+                    ${producto.precio}
+
+                </p>
+
+            </div>
+
+        </div>
+
+        `;
+
+        /* INSERTAR */
+        if(lista){
+
+            lista.innerHTML +=
+            productoHTML;
+
+        }
+
+        if(listaMini){
+
+            listaMini.innerHTML +=
+            miniHTML;
+
+        }
 
     });
 
-    /* TOTAL */
+    /* =========================
+       TOTAL
+    ========================= */
     let totalCarrito =
     document.getElementById(
         "total-carrito"
@@ -287,7 +433,7 @@ function comprarWhatsApp(){
             .replace("MXN","")
             .trim()
 
-        );
+        ) || 0;
 
         let subtotal =
         precioNumero *
@@ -323,7 +469,7 @@ function comprarWhatsApp(){
 
     );
 
-    /* VACIAR DESPUES DE COMPRAR */
+    /* LIMPIAR CARRITO */
     carrito = [];
 
     localStorage.setItem(
@@ -340,9 +486,11 @@ function comprarWhatsApp(){
 /* =========================
    CARRITO MOVIL
 ========================= */
-function abrirCarritoMovil(){
+function abrirCarritoMovil(event){
 
     if(window.innerWidth <= 768){
+
+        event.preventDefault();
 
         window.location.href =
         "carrito.html";
